@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # mysql driver
 gem 'mysql2', '~> 0.5'
+
+gem "devise", "~> 4.9"
