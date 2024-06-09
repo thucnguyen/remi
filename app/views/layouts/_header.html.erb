@@ -4,7 +4,9 @@
     <% if user_signed_in? %>
       <%= current_user.email %>
       |
-      <%= link_to "Log out", destroy_user_session_path %>
+      <%= button_to "Share a movie", destroy_user_session_path, :method => :get %>
+      |
+      <%= button_to "Log out", destroy_user_session_path, :method => :get %>
     <% else %>
       <%= render "sessions/login"  unless devise_controller? %>
     <% end %>
