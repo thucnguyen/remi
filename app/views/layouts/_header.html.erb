@@ -1,0 +1,12 @@
+<div id="header">
+  <h1>Funny Movies</h1>
+  <div id="user_info">
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+      |
+      <%= link_to "Log out", destroy_user_session_path %>
+    <% else %>
+      <%= render "sessions/login"  unless devise_controller? %>
+    <% end %>
+  </div>
+</div>
