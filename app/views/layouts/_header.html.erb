@@ -4,7 +4,7 @@
     <% if user_signed_in? %>
       <%= current_user.email %>
       |
-      <%= button_to "Share a movie", destroy_user_session_path, :method => :get %>
+      <%= button_to "Share a movie", new_movie_path, :method => :get %>
       |
       <%= button_to "Log out", destroy_user_session_path, :method => :get %>
     <% else %>
