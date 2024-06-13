@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_09_112450) do
+ActiveRecord::Schema.define(version: 2024_06_11_121626) do
 
   create_table "movies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2024_06_09_112450) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_movies_on_user_id"
     t.index ["youtube_url"], name: "index_movies_on_youtube_url", unique: true
+  end
+
+  create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "recipient_id"
+    t.string "action"
+    t.string "notifiable_type"
+    t.integer "notifiable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,4 +45,5 @@ ActiveRecord::Schema.define(version: 2024_06_09_112450) do
   end
 
   add_foreign_key "movies", "users"
+  add_foreign_key "notifications", "users"
 end
