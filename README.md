@@ -32,6 +32,7 @@ brew install redis
 * Database creation
 In the project folder
 ```
+rails db:create
 rails db:schema:load
 ```
 This will be create database struture
